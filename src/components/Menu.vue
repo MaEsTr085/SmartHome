@@ -14,16 +14,15 @@ export default {
   data() {
     return {
       menuItems: [
-        { id: 1, text: "Главная" },
-        { id: 2, text: "Мой дом" },
-        { id: 3, text: "Устройства" },
-        { id: 4, text: "Сценарии" },
-      ]
+        { id: 1, text: "Главная", index: 1 },
+        { id: 2, text: "Мой дом", index: 2 },
+        { id: 3, text: "Устройства", index: 3 },
+        { id: 4, text: "Сценарии", index: 4 },
+      ],
     }
   },
   methods: {
     inWork() {
-      alert("В процессе разработки");
     }
   }
 }

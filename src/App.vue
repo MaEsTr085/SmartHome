@@ -1,25 +1,27 @@
 <template>
   <div class="app">
     <Menu></Menu>
-    <Main></Main>
+    <Devices></Devices>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
-import Main from './components/Main.vue'
 import Footer from './components/Footer.vue'
-
-var Event = new Vue();
+import Devices from './components/MainDevices.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+    }
+  },
   components: {
     Menu,
-    Main,
+    Devices,
     Footer,
-  },
+  }
 }
 </script>
 
