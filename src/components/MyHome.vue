@@ -10,11 +10,15 @@
                     <div v-else-if="room.deviceCount == 1">1 устройство</div>
                     <div v-else-if="room.deviceCount >= 2 && room.deviceCount < 5">{{ room.deviceCount }} устройства</div>
                     <div v-else>{{ room.deviceCount }} устройств</div>
-                    <button @click="SetDispay(room.id)">Подробнее</button>
+                    <button class="btnAdv" @click="SetDispay(room.id)">Подробнее</button>
                 </div>
                 <div class="roomAdv" v-for="roomadv in roomListAdv" :key="roomadv.id" :class="{'isDisplay': roomadv.isDisplay}">
                     <div>{{ roomadv.roomName }}</div>
-                    <button @click="SetBack">Назад</button>
+                    <div class="device">
+                        <div class="div-inner"><img src="../assets/air-conditioneractive.png" alt=""></div>
+                        <div class="div-inner"><img src="../assets/televisionactive.png" alt=""></div>
+                    </div>
+                    <button class="btnBack" @click="SetBack">Назад</button>
                 </div>
             </div>
         </div>
@@ -31,110 +35,110 @@ import image_kt from '../assets/kitchen.png'
 import image_br from '../assets/bedroom.png'
 
 export default {
-name: 'MyHome',
-data() {
-    return {
-        currentId: 0,
-        roomList: [
-            { id: 1, roomName: "Гостиная", deviceCount: 3, image: image_lr, isDisplay: false },
-            { id: 2, roomName: "Кухня", deviceCount: 1, image: image_kt, isDisplay: false },
-            { id: 3, roomName: "Спальня", deviceCount: 2, image: image_br, isDisplay: false },
-            { id: 4, roomName: "Детская", deviceCount: 1, image: image_lr, isDisplay: false },
-        ],
-        roomListAdv: [
-            { id: 1, roomName: "Гостиная", isDisplay: true },
-            { id: 2, roomName: "Кухня", isDisplay: true },
-            { id: 3, roomName: "Спальня", isDisplay: true },
-            { id: 4, roomName: "Детская", isDisplay: true },
-        ]
-    }
-},
-components: {
-    Menu,
-    Footer,
-},
-methods: {
-    SetDispay(id) {
-        switch (id - 1) {
-            case 0:
-                this.roomList[0].isDisplay = false
-                this.roomList[1].isDisplay = true
-                this.roomList[2].isDisplay = true
-                this.roomList[3].isDisplay = true
-                this.roomListAdv[0].isDisplay = false
-                this.roomListAdv[1].isDisplay = true
-                this.roomListAdv[2].isDisplay = true
-                this.roomListAdv[3].isDisplay = true
-                break
-            case 1:
-                this.roomList[0].isDisplay = true
-                this.roomList[1].isDisplay = false
-                this.roomList[2].isDisplay = true
-                this.roomList[3].isDisplay = true
-                this.roomListAdv[0].isDisplay = true
-                this.roomListAdv[1].isDisplay = false
-                this.roomListAdv[2].isDisplay = true
-                this.roomListAdv[3].isDisplay = true
-                break
-            case 2:
-                this.roomList[0].isDisplay = true
-                this.roomList[1].isDisplay = true
-                this.roomList[2].isDisplay = false
-                this.roomList[3].isDisplay = true
-                this.roomListAdv[0].isDisplay = true
-                this.roomListAdv[1].isDisplay = true
-                this.roomListAdv[2].isDisplay = false
-                this.roomListAdv[3].isDisplay = true
-                break
-            case 3:
-                this.roomList[0].isDisplay = true
-                this.roomList[1].isDisplay = true
-                this.roomList[2].isDisplay = true
-                this.roomList[3].isDisplay = false
-                this.roomListAdv[0].isDisplay = true
-                this.roomListAdv[1].isDisplay = true
-                this.roomListAdv[2].isDisplay = true
-                this.roomListAdv[3].isDisplay = false
-                break
+    name: 'MyHome',
+    data() {
+        return {
+            currentId: 0,
+            roomList: [
+                { id: 1, roomName: "Гостиная", deviceCount: 3, image: image_lr, isDisplay: false },
+                { id: 2, roomName: "Кухня", deviceCount: 1, image: image_kt, isDisplay: false },
+                { id: 3, roomName: "Спальня", deviceCount: 2, image: image_br, isDisplay: false },
+                { id: 4, roomName: "Детская", deviceCount: 1, image: image_lr, isDisplay: false },
+            ],
+            roomListAdv: [
+                { id: 1, roomName: "Гостиная", isDisplay: true },
+                { id: 2, roomName: "Кухня", isDisplay: true },
+                { id: 3, roomName: "Спальня", isDisplay: true },
+                { id: 4, roomName: "Детская", isDisplay: true },
+            ]
         }
     },
-    SetBack() {
-        this.roomList[0].isDisplay = false
-        this.roomList[1].isDisplay = false
-        this.roomList[2].isDisplay = false
-        this.roomList[3].isDisplay = false
-        this.roomListAdv[0].isDisplay = true
-        this.roomListAdv[1].isDisplay = true
-        this.roomListAdv[2].isDisplay = true
-        this.roomListAdv[3].isDisplay = true
+    components: {
+        Menu,
+        Footer,
+    },
+    methods: {
+        SetDispay(id) {
+            switch (id - 1) {
+                case 0:
+                    this.roomList[0].isDisplay = false
+                    this.roomList[1].isDisplay = true
+                    this.roomList[2].isDisplay = true
+                    this.roomList[3].isDisplay = true
+                    this.roomListAdv[0].isDisplay = false
+                    this.roomListAdv[1].isDisplay = true
+                    this.roomListAdv[2].isDisplay = true
+                    this.roomListAdv[3].isDisplay = true
+                    break
+                case 1:
+                    this.roomList[0].isDisplay = true
+                    this.roomList[1].isDisplay = false
+                    this.roomList[2].isDisplay = true
+                    this.roomList[3].isDisplay = true
+                    this.roomListAdv[0].isDisplay = true
+                    this.roomListAdv[1].isDisplay = false
+                    this.roomListAdv[2].isDisplay = true
+                    this.roomListAdv[3].isDisplay = true
+                    break
+                case 2:
+                    this.roomList[0].isDisplay = true
+                    this.roomList[1].isDisplay = true
+                    this.roomList[2].isDisplay = false
+                    this.roomList[3].isDisplay = true
+                    this.roomListAdv[0].isDisplay = true
+                    this.roomListAdv[1].isDisplay = true
+                    this.roomListAdv[2].isDisplay = false
+                    this.roomListAdv[3].isDisplay = true
+                    break
+                case 3:
+                    this.roomList[0].isDisplay = true
+                    this.roomList[1].isDisplay = true
+                    this.roomList[2].isDisplay = true
+                    this.roomList[3].isDisplay = false
+                    this.roomListAdv[0].isDisplay = true
+                    this.roomListAdv[1].isDisplay = true
+                    this.roomListAdv[2].isDisplay = true
+                    this.roomListAdv[3].isDisplay = false
+                    break
+            }
+        },
+        SetBack() {
+            this.roomList[0].isDisplay = false
+            this.roomList[1].isDisplay = false
+            this.roomList[2].isDisplay = false
+            this.roomList[3].isDisplay = false
+            this.roomListAdv[0].isDisplay = true
+            this.roomListAdv[1].isDisplay = true
+            this.roomListAdv[2].isDisplay = true
+            this.roomListAdv[3].isDisplay = true
+        }
     }
-}
 }
 </script>
 
 <style scoped>
 * {
-font-family: "Comfortaa", monospace;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    font-family: "Comfortaa", monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .app {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-content: center;
-background-color: #BCC3BC;
-padding: 10px;
-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #BCC3BC;
+    padding: 10px;
+    height: 100vh;
 }
 
 .app1 {
-height: 70vh; 
-background-color: #4F5A4E;
-border-radius: 10px;
-padding: 20px;
+    height: 70vh; 
+    background-color: #4F5A4E;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .app-inner {
@@ -167,13 +171,50 @@ padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     padding: 0 10px 0 10px;
     margin-bottom: 20px;
     padding: 20px;
+    font-size: 28px;
+}
+
+.device {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: #4F5A4E;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .room img {
     width: 70%;
+}
+
+.div-inner img {
+    width: 90%;
+}
+
+.btnAdv, .btnBack {
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: #373937;
+    cursor: pointer;
+}
+
+.btnBack {
+    width: 150px;
 }
 
 .isDisplay {

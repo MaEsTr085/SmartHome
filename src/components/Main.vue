@@ -11,12 +11,12 @@ export default {
   },
 };
 </script>
-<!--height 500px-->
+
 <style scoped>
-  .app {
-    max-height: 70vh; 
-    background-color: #4F5A4E;
-    border-radius: 10px;
-    padding: 20px;
-  }
+.app {
+  max-height: 70vh; 
+  background-color: #4F5A4E;
+  border-radius: 10px;
+  padding: 20px;
+}
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in menuItems" :key="item.id" @click="inWork">
-        <router-link v-if="item.index == 1" to="/">{{ item.text }}</router-link>
-        <router-link v-else-if="item.index == 2" to="/myhome">{{ item.text }}</router-link>
-        <router-link v-else-if="item.index == 3" to="/devices">{{ item.text }}</router-link>
-        <router-link v-else-if="item.index == 4" to="/scripts">{{ item.text }}</router-link>
+      <li v-for="item in menuItems" :key="item.id" @click="inWork(item.id)">
+        <router-link class="nav" v-if="item.index == 1" to="/">{{ item.text }}</router-link>
+        <router-link class="nav" v-else-if="item.index == 2" to="/myhome">{{ item.text }}</router-link>
+        <router-link class="nav" v-else-if="item.index == 3" to="/devices">{{ item.text }}</router-link>
+        <router-link class="nav" v-else-if="item.index == 4" to="/scripts">{{ item.text }}</router-link>
         <p v-else>{{ item.text }}</p>
       </li>
     </ul>
@@ -26,16 +26,33 @@ export default {
     }
   },
   methods: {
-    inWork() {
+    inWork(id) {
+      switch (id) {
+        case 1:
+          this.$router.push('/')
+          break
+        case 2:
+          this.$router.push('/myhome')
+          break
+        case 3:
+          this.$router.push('/devices')
+          break
+        case 4:
+          this.$router.push('/scripts')
+          break
+      }
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 * {
   color: #ffffff;
+}
+
+.nav {
+  text-decoration: none;
 }
 
 ul {
@@ -78,5 +95,4 @@ li:hover:last-child {
     border-right: none;
   }
 }
-
 </style>

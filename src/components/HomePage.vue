@@ -53,18 +53,18 @@ export default {
 }
 
 .app1 {
-height: 70vh; 
-background-color: #4F5A4E;
-background-image: url("../assets/home.jpg");
-border-radius: 10px;
+  height: 70vh; 
+  background-color: #4F5A4E;
+  background-image: url("../assets/home.jpg");
+  border-radius: 10px;
 }
 
 .app-inner {
   height: 70vh; 
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .home {

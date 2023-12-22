@@ -1,17 +1,19 @@
 <template>
-    <Menu></Menu>
     <div class="app">
-        <div class="app-inner">
-            <div class="device" v-for="device in deviceList" :key="device.id">
-                <div id="div-inner1"><img :src="device.image" alt=""></div>
-                <div id="div-inner2">
-                <button class="button" :class="{'isWork': device.isWork}" @click="ButtonToggle(device.id - 1)">{{ device.status }}</button>
-                <p>{{ device.deviceName }}</p>
+        <Menu></Menu>
+        <div class="app1">
+            <div class="app-inner">
+                <div class="device" v-for="device in deviceList" :key="device.id">
+                    <div id="div-inner1"><img :src="device.image" alt=""></div>
+                    <div id="div-inner2">
+                        <button class="button" :class="{'isWork': device.isWork}" @click="ButtonToggle(device.id - 1)">{{ device.status }}</button>
+                        <p>{{ device.deviceName }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
-    <Footer></Footer>
 </template>
 
 <script>
@@ -31,12 +33,12 @@ export default {
     name: "MainDevices",
     data() {
         return {
-        deviceList: [
-            { id: 1, deviceName: "Робот-пылесос", image: image_rv, isWork: false, status: "Выкл" },
-            { id: 2, deviceName: "Лампочка", image: image_lb, isWork: false, status: "Выкл" },
-            { id: 3, deviceName: "Кондиционер", image: image_ac, isWork: false, status: "Выкл" },
-            { id: 4, deviceName: "Телевизор", image: image_tv, isWork: false, status: "Выкл" },
-        ]
+            deviceList: [
+                { id: 1, deviceName: "Робот-пылесос", image: image_rv, isWork: false, status: "Выкл" },
+                { id: 2, deviceName: "Лампочка", image: image_lb, isWork: false, status: "Выкл" },
+                { id: 3, deviceName: "Кондиционер", image: image_ac, isWork: false, status: "Выкл" },
+                { id: 4, deviceName: "Телевизор", image: image_tv, isWork: false, status: "Выкл" },
+            ]
         };
     },
     components: {
@@ -75,15 +77,31 @@ export default {
     }
 };
 </script>
-<!--height 500px-->
+
 <style scoped>
+* {
+    font-family: "Comfortaa", monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .app {
-    max-height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: #BCC3BC;
+    padding: 10px;
+    height: 100vh;
+}
+
+.app1 {
+    height: 70vh; 
     background-color: #4F5A4E;
     border-radius: 10px;
     padding: 20px;
-  }
+}
 
 .app-inner {
     display: flex;
@@ -93,8 +111,8 @@ export default {
 }
 
 .device {
-    width: 200px;
-    height: 150px;
+    width: 300px;
+    height: 200px;
     background-color: #373937;
     border-radius: 10px;
     color: #ffffff;
@@ -103,6 +121,7 @@ export default {
     align-items: center;
     padding: 0 10px 0 10px;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 #div-inner2 {
@@ -118,11 +137,12 @@ export default {
 
 .button {
     color: #ffffff;
-    width: 60px;
-    height: 30px;
+    width: 80px;
+    height: 40px;
     border-radius: 6px;
     background-color: #e71010;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 #div-inner2 p {

@@ -9,7 +9,6 @@
           <a class="social-links-a" href="" target="_blank" rel="noopener noreferrer"><img src="../assets/VK.svg" alt="">VK</a>
           <a class="social-links-a" href="" target="_blank" rel="noopener noreferrer"><img src="../assets/Pinterest.svg" alt="">Pinterest</a>
           <a class="social-links-a" href="" target="_blank" rel="noopener noreferrer"><img src="../assets/Telegram.svg" alt="">Telegram</a>
-          <!-- Добавьте другие социальные сети по аналогии -->
         </div>
       </div>
       <p>&copy; 2023 Smart Home. Все права защищены. Made with <span style="color: #dd3333;">&#10084;</span></p>
@@ -18,18 +17,17 @@
   
 <script>
 export default {
-name: 'FooterComp',
-data() {
-    return {
-    phoneNumber: '+7 (961) 923-0737', // Замените на ваш номер телефона
-    legalAddress: 'Ваш юридический адрес', // Замените на ваш юридический адрес
-    };
-},
-};
+    name: 'FooterComp',
+    data() {
+        return {
+            phoneNumber: '+7 (961) 923-0737',
+            legalAddress: 'Ваш юридический адрес',
+        }
+    }
+}
 </script>
 
 <style scoped>
-/* Стили для вашего футера */
 footer {
     background-color: #1C2323;
     color: #fff;
