@@ -5,6 +5,7 @@
         <router-link v-if="item.index == 1" to="/">{{ item.text }}</router-link>
         <router-link v-else-if="item.index == 2" to="/myhome">{{ item.text }}</router-link>
         <router-link v-else-if="item.index == 3" to="/devices">{{ item.text }}</router-link>
+        <router-link v-else-if="item.index == 4" to="/scripts">{{ item.text }}</router-link>
         <p v-else>{{ item.text }}</p>
       </li>
     </ul>
