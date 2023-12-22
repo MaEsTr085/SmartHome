@@ -1,4 +1,5 @@
 <template>
+    <Menu></Menu>
     <div class="app">
         <div class="app-inner">
             <div class="device" v-for="device in deviceList" :key="device.id">
@@ -10,38 +11,68 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 
 <script>
 import image_rv from "../assets/robot-vacuum.png"
+import image_rva from "../assets/robot-vacuumactive.png"
 import image_lb from "../assets/lightbulb.png"
+import image_lba from "../assets/lightbulbactive.png"
 import image_ac from "../assets/air-conditioner.png"
-import image_st from "../assets/streaming-tv-app.png"
+import image_aca from "../assets/air-conditioneractive.png"
+import image_tv from "../assets/television.png"
+import image_tva from "../assets/televisionactive.png"
+
+import Menu from './Menu.vue'
+import Footer from './Footer.vue'
 
 export default {
-name: "DevicesComp",
-data() {
-    return {
-    deviceList: [
-        { id: 1, deviceName: "Робот-пылесос", image: image_rv, isWork: false, status: "Выкл" },
-        { id: 2, deviceName: "Лампочка", image: image_lb, isWork: false, status: "Выкл" },
-        { id: 3, deviceName: "Кондиционер", image: image_ac, isWork: false, status: "Выкл" },
-        { id: 4, deviceName: "Телевизор", image: image_st, isWork: false, status: "Выкл" },
-    ]
-    };
-},
-methods: {
-    ButtonToggle(id) {
-    if (this.deviceList[id].isWork) {
-        this.deviceList[id].isWork = false;
-        this.deviceList[id].status = 'Выкл';
+    name: "MainDevices",
+    data() {
+        return {
+        deviceList: [
+            { id: 1, deviceName: "Робот-пылесос", image: image_rv, isWork: false, status: "Выкл" },
+            { id: 2, deviceName: "Лампочка", image: image_lb, isWork: false, status: "Выкл" },
+            { id: 3, deviceName: "Кондиционер", image: image_ac, isWork: false, status: "Выкл" },
+            { id: 4, deviceName: "Телевизор", image: image_tv, isWork: false, status: "Выкл" },
+        ]
+        };
+    },
+    components: {
+        Menu,
+        Footer,
+    },
+    methods: {
+        ButtonToggle(id) {
+            if (this.deviceList[id].isWork) {
+                this.deviceList[id].isWork = false
+                this.deviceList[id].status = 'Выкл'
+                if (this.deviceList[id].id == 2) {
+                    this.deviceList[1].image = image_lb
+                } else if (this.deviceList[id].id == 1) {
+                    this.deviceList[0].image = image_rv
+                } else if (this.deviceList[id].id == 3) {
+                    this.deviceList[2].image = image_ac
+                } else if (this.deviceList[id].id == 4) {
+                    this.deviceList[3].image = image_tv
+                }
+            }
+            else {
+                this.deviceList[id].isWork = true
+                this.deviceList[id].status = "Вкл"
+                if (this.deviceList[id].id == 2) {
+                    this.deviceList[1].image = image_lba
+                } else if (this.deviceList[id].id == 1) {
+                    this.deviceList[0].image = image_rva
+                } else if (this.deviceList[id].id == 3) {
+                    this.deviceList[2].image = image_aca
+                } else if (this.deviceList[id].id == 4) {
+                    this.deviceList[3].image = image_tva
+                }
+            }
+        }
     }
-    else {
-        this.deviceList[id].isWork = true;
-        this.deviceList[id].status = "Вкл";
-    }
-    }
-}
 };
 </script>
 <!--height 500px-->

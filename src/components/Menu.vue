@@ -2,7 +2,10 @@
   <div>
     <ul>
       <li v-for="item in menuItems" :key="item.id" @click="inWork">
-        {{ item.text }}
+        <router-link v-if="item.index == 1" to="/">{{ item.text }}</router-link>
+        <router-link v-else-if="item.index == 2" to="/myhome">{{ item.text }}</router-link>
+        <router-link v-else-if="item.index == 3" to="/devices">{{ item.text }}</router-link>
+        <p v-else>{{ item.text }}</p>
       </li>
     </ul>
   </div>
